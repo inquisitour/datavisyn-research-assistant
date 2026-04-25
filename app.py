@@ -201,6 +201,9 @@ def fix_formatting(text: str) -> str:
     text = re.sub(r'(\d)([A-Z][a-z])', r'\1\n\n\2', text)
     text = re.sub(r'(\.)(\d)', r'\1 \2', text)
     text = re.sub(r'(\.)(\*\*[A-Z])', r'\1\n\n\2', text)
+    text = re.sub(r'(:)(- )', r'\1\n', text)
+    text = re.sub(r'\)-\s*([A-Z])', r')\n- \1', text)
+    text = re.sub(r'([a-z\.])-\s([A-Z])', r'\1\n- \2', text)
     return text
 
 
