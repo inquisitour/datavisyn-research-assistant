@@ -10,6 +10,8 @@ This system follows a RAG-style architecture (retrieval + generation), where ret
 
 ```bash
 # 1. Clone and set up environment
+git clone https://github.com/inquisitour/datavisyn-research-assistant.git
+cd datavisyn-research-assistant
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 pip install -r requirements.txt
