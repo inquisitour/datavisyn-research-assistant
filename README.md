@@ -208,14 +208,3 @@ curl -X POST http://localhost:8000/query \
 | What is the capital of France? | Refused (out of scope) |
 
 ---
-
-## Iterative Improvements Made
-
-| Issue observed | Fix applied |
-|---|---|
-| Context overflow with 57k genes | Capped tool results at 50 genes per call |
-| Agent calling multiple tools for combined queries | Added `filter_genes()` multi-criteria tool |
-| Extra API round-trip adding ~1-2s latency | Eliminated "peek" call; use `get_final_message()` |
-| Biotype mismatch (`linc_rna` vs `linc_r_n_a`) | Strip underscores before comparison |
-| `[Source:HGNC...]` clutter in gene names | Regex strip at data load time |
-| Markdown not rendering during streaming | Post-process with `fix_formatting()` after stream completes |
