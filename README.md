@@ -84,16 +84,6 @@ This approach improves determinism and reduces hallucination risk in structured 
 
 ---
 
-## Tech Stack Decision: Anthropic SDK over Pydantic AI
-
-At the time of building, Pydantic AI was evaluated, but for this implementation I chose the Anthropic SDK to have finer control over streaming and tool execution. 
-
-Pydantic is still used throughout for schema validation (`models.py`). The agent architecture mirrors what a Pydantic AI implementation would produce (tool schemas, agentic loop, structured outputs), implemented at a lower level for reliability and control. Happy to discuss the trade-offs or walk through what this would look like in Pydantic AI.
-
-Note on LLM provider: This implementation uses the Anthropic Claude API. The agent layer (agent.py) is the only provider-specific component and swapping to another provider (e.g., OpenAI) would only require updating the client integration and tool schema format, while the rest of the system remains unchanged.
-
----
-
 ## Tools Implemented
 
 | Tool | Purpose |
